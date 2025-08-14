@@ -1,0 +1,9 @@
+.info {width: 1920px; height: 1078px; display: flex; justify-content: space-between; align-items: center; 
+background-color: aqua;}
+
+.text-box1{width: 960px; height: 1078px; background-color: #1B3A4B;
+}
+.text-box1 h1 {width: 490px;height: 88px ; font-size: 60px; margin-top: 400px; padding-bottom: 20px; color: #fff;}
+.text-box1 p {width: 490px; height: 80px; font-size: 23px; color: #fff; font-weight: lighter;}
+
+

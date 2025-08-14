@@ -1,0 +1,45 @@
+.story {width: 1920px; height: 2085px;  
+justify-content: center; align-items: center; margin-bottom: -80px;}
+
+
+
+.title .overlay2 {
+    position: absolute;
+    width: 1920px; 
+    height: 695px;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 5;
+}
+
+.title p {
+    position: absolute; font-size: 100px; font-weight: bold;  z-index: 80; align-items: center; justify-content: center;
+    color: white;   transform: translate(-50%, -50%);   top: 50%; left: 50%;
+}
+
+.title img {width: 1920px; height: 695px; object-fit: cover; ;}
+.title { width: 1920px; height: 695px;  position: relative; 
+  overflow: hidden; }
+
+.box1 {width: 1920px; height: 695px; display: flex; background-color: #061C28;  }
+
+.imgbox img { object-fit: cover; /* 또는 contain */ width: 960px; height: 695px ;}
+
+.subgroup { width: 960px; height: 695px ;}
+
+.sub {width: 700px; height: 530px; background-color: #061C28; color: white;
+     justify-content: center; margin-top: 6%; }
+
+     .sub h3 {font-size: 35px; margin-bottom: 20px;}
+     .sub p {font-size: 25px;}
+
+
+.sub2 {width: 700px; height: 530px;  color: white;
+     justify-content: center; margin-top: 18%; }
+
+     .sub2 h3 {font-size: 35px; margin-bottom: 20px;}
+     .sub2 p {font-size: 25px;}
+
+
+
+.box2 {width: 1920px; height: 695px; display: flex;  background-color: #061C28;}
+.imgbox2 img { object-fit: cover; /* 또는 contain */ width: 960px; height: 695px ;}

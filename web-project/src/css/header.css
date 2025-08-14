@@ -1,0 +1,145 @@
+*{margin: 0 auto; }
+
+.header {
+    width: 1920px; height: 129px; background-color: #ffffff; 
+    display: flex;
+    align-items: center;
+ 
+  font-family: 'Pretendard', Black;
+  
+}
+
+.header img {object-fit: cover; width: 110px; height: 110px;
+
+ -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+
+
+   display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateX(-2px);
+  transform: perspective(1px) translateX(-2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+
+
+}
+
+
+.header img:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  
+    cursor: pointer;
+  }
+
+
+
+
+.menu {
+    display: flex;
+    width: 1212PX;
+    height: 90PX;
+    
+   align-items: center;
+   justify-content: center;
+
+     -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+
+
+
+   
+
+}
+.menu .link {
+    font-size: 30px;
+    text-decoration: none;
+    color: #1B3A4B;
+
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.link:hover {
+    /* font-weight: bold;
+   transition: 0.5s;
+   cursor: pointer; */
+
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+
+}
+.menu .Donation{
+    font-size: 30px;
+    margin: 80px;
+    text-decoration: none;
+    color: #6FBEDB;
+    font-family: 'Pretendatd';
+    font-weight: bold;
+
+      -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+    
+}
+
+.Donation:hover {
+    /* font-weight: lighter;
+   transition: 0.5s;
+   cursor: pointer; */
+
+    -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+}
+
+
+
+.user {display: flex; width: 800px; height: 24px;  justify-content: center;
+    align-items: center;
+}
+
+.user .link2 {
+    font-size: 20px; margin: 20px;
+    text-decoration: none;
+    
+    color: #1B3A4B;
+
+}
+
+.link2:hover {
+    font-weight: bold;
+   transition: 0.5s;
+   cursor: pointer;
+}
+.user .link3 {
+    font-size: 20px; margin: 20px;
+    text-decoration: none;
+    
+    color: #1B3A4B;
+
+}
+
+.link3:hover {
+    font-weight: bold;
+   transition: 0.5s;
+   cursor: pointer;
+}

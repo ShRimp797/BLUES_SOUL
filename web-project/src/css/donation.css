@@ -1,0 +1,130 @@
+.no-scroll-x {
+  overflow-x: hidden;
+}
+
+.title2 .overlay3 {
+    position: absolute;
+    width: 1920px; 
+    height: 695px;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 5;
+}
+
+.title2 p {
+    position: absolute; font-size: 100px; font-weight: bold;  z-index: 80; align-items: center; justify-content: center;
+    color: white;   transform: translate(-50%, -50%);   top: 50%; left: 50%;
+}
+.title2 .sub3 {
+    font-size: 25px; transform: translate(-50%, -50%);   top: 62%; left: 50%;
+     font-weight: lighter;   } 
+.title2 img {width: 1920px; height: 695px; object-fit: cover; ;}
+.title2 { width: 1920px; height: 695px;  position: relative; 
+  overflow: hidden; }
+
+
+.sub4 { width: 1920px; height: 695px; background-color: #061C28 ;
+}
+.sub5 {color: #fff;   
+    align-items: center; justify-content: center; text-align: center; padding-top: 10%; }
+.sub5 p {font-size: 60px; }
+.sub5 .sub3-1 {font-size: 25px; font-weight: lighter; padding-top: 20px;}
+
+.btn2 {
+    border-style: none;
+    margin-top: 35px;
+    width: 315px;
+    height: 66px;
+    border-radius: 30px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* 밑줄 제거 */
+    background-color: #6FBEDB;
+
+    -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  }
+
+
+.btn2:hover{
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  cursor: pointer;
+}
+
+
+
+ 
+
+  .btn2 h3 {
+    color: #fff;
+    font-size: 25px;
+    opacity: 100%;
+    font-weight: normal;
+  }
+
+  .donation {
+     width: 1920px; height: 900px; background-color: #003F56 ; margin: 0; justify-content: center;
+     align-items: center;
+  }
+  .text-box3 {width: 368px; height: 61px; padding-top: 55px; text-align: center; align-items: center; text-align: center;}
+  .text-box3 h1{color: #fff;   margin-left: -95px;}
+
+  .card-box2 {
+    align-items: center; width: 1920px; height: 695px; justify-content: center; display: flex;
+    
+  }
+  .card-box2:hover {cursor: pointer;}
+
+  .card3 .D {color: #fff;   width: 632px; height: 650px; text-align: center; margin-top: 30%;}
+.card3 img {width: 270px;
+  height: 280px;
+  object-fit: cover; /* 또는 contain */
+  border-radius: 50%; background-color: #fff; }
+.D h5 {font-size: 45px; font-weight: 400; padding-top: 15px;}
+.D p {padding: 5px; font-size: 30px;}
+
+.donation2 {width: 1920px; height: 764px; display: flex; justify-content: center; align-items: center; background-color: #003F56;}
+.md img{width: 644px; height: 612px; overflow: hidden; }
+.news img{width: 644px; height: 612px; overflow: hidden; }
+.email img{width: 644px; height: 612px; overflow: hidden; }
+
+.md p {z-index: 50;   font-weight: 500;    font-size: 50px; position: relative; top: -322px; left: 170px; color: #ffffff; margin: 0;}
+.news p {z-index: 50;   font-weight: 500;  font-size: 50px; position: relative; top: -322px; left: 115px; color: #ffffff; margin: 0;}
+.email p {z-index: 50;  font-weight: 500;  font-size: 50px; position: relative; top: -322px; left: 120px; color: #ffffff; margin: 0;}
+
+.donation2:hover {cursor: pointer;}
+
+.donation2 .overlay {  position: absolute;
+    width: 644px; 
+    height: 612px;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 5;}
+
+.camp {width: 1920px; height: 764px; 
+display: flex; justify-content: center; align-items: center; margin-bottom: -80px;} 
+
+.camp .overlay {
+  position: absolute;
+  width: 962px; 
+  height: 764px;
+  background-color: rgba(0,0,0,0.6);
+    z-index: 5;
+}
+
+.bird {width: 962px; height: 764px;}
+.bird img {width: 962px; height: 764px; object-fit: cover;}
+.bird p { font-weight: 500;     z-index: 50; font-size: 50px; position: relative; top: -450px; text-align:center;   color: #ffffff; margin: 0;}
+
+.trash {width: 962px; height: 764px;}
+.trash img {width: 962px; height: 764px; object-fit: cover;}
+.trash p {   font-weight: 500;  z-index: 50; font-size: 50px; position: relative; top: -450px; text-align: center; color: #ffffff; margin: 0;}
+
+.camp:hover {cursor: pointer;}
+.camp-link {text-decoration: none;}

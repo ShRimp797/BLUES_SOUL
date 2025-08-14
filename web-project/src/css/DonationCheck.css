@@ -1,0 +1,9 @@
+
+.Dn-box{ width: 1609px; height: 600px; text-align: center; align-items: center;}
+.Dn-box h1 {font-size: 50px; margin-bottom: 0; }
+.dn-title p {margin-bottom: 50px; color: #1B3A4B; font-weight: 800px;}
+
+.DoNation-box {width: 1400px; padding: 20px; justify-content: space-between; display: flex; border-bottom: 1px solid #1b3a4b2d; align-items: center;}
+.DoNation-box p {justify-content: left; display: flex;  margin: 0;}
+.tag {width: 350px;align-items: center; margin: 0;}
+.tag strong {margin: 0; padding: 5px; align-items: center;} 

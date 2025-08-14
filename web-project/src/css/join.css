@@ -1,0 +1,94 @@
+.j-j {  width: 1400px; height: 1300px;
+  line-height: 44px; font-size: 30px ; color: #1B3A4B; font-weight: 300; 
+}
+
+.j-info {line-height: 100px;  font-size: 25px;}
+.j-j h1 {text-align: center; padding: 50px;}
+
+.j-info input {width: 800px; height: 35px;  border-radius: 10px; margin: 0; margin-left: 83px; font-size: 20px; align-items: center;}
+#j-name2.j-name2{width: 300px; margin-left: 20px;}
+.j-name {width: 1000px; height: 100px; display: flex; margin: 0; }
+.j-name .name {width: 1700px; height: 100px; display: flex; margin: 0; align-items: center;}
+/* .name .j-name2 {width: 200px; height: 25px;  border-radius: 10px; margin: 20; } */
+.name p {margin: 0; align-items: center;}
+.j-number {width: 1705px; height: 100px; display: flex;}
+.j-number p {width: 111px; display: flex; margin: 0; align-items: center; height: 50px;}  
+.number-box .j-number2 {width: 200px; height: 25px; margin: 20px;  border-radius: 10px;}
+
+.number-box {width: 1000px; height: 50px; display:flex ; margin:  0 ; padding: 0; align-items: center;}
+
+
+
+.j-email {display: flex; width: 1050px; align-items: center; float: left; }
+.j-email p {margin: 0; width: 200px;}
+
+.j-id {display: flex;  width: 1050px; align-items: center; float: left;}
+.j-id p {margin: 0; width: 200px;}
+.j-password {display: flex;  width: 1050px; align-items: center; float: left;}
+.j-password p {margin: 0; width: 200px;}
+.j-post {display: flex;  width: 1050px; align-items: center; float: left;}
+.j-post p {margin: 0; width: 200px;}
+.j-address {display: flex;  width: 1050px; align-items: center; float: left;} 
+.j-address p {margin: 0; width: 200px;}
+.j-delivery {display: flex;  width: 1050px; align-items: center; float: left;}
+.j-delivery p {margin: 0; width: 200px;}
+
+/* .submit-btn-link2 {
+
+  background-color: #1B3A4B;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 20px;
+    
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  margin-top: 30px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  width: 500px;
+  height: 60px;
+  
+ 
+} */
+
+
+
+.submit-btn-wrapper2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-btn-link2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.submit-btn-link2:hover {
+  background-color: #145369;
+}
+
+.submit-btn-link2:active {
+  background-color: #0D2B3A;
+}
+

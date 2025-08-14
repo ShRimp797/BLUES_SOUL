@@ -1,0 +1,117 @@
+/* .card {width: 1920px; height: 1078px; justify-content: center; }
+h1 {  width:581px ; height: 78px;  font-size: 65px; color: #1B3A4B;} 
+.text {width: 700px; height: 36px ; font-size: 30px; padding: 20px; color: #1B3A4B; }
+.text-box{
+    width: 700px; height: 192px;  
+   justify-content: center; align-items: center;  text-align: center; padding-top: 179px;
+   
+} */
+
+*{margin: 0 auto;}
+/* 바깥 카드 섹션 */
+.card {
+  width: 1920px;
+  min-height: 100vh; /* 또는 auto */
+  padding-bottom: 100px; /* 하단 공간 확보 */
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* 제목 텍스트 영역 */
+.text-box {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 120px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 65px;
+  color: #1B3A4B;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 28px;
+  color: #1B3A4B;
+}
+
+/* 슬라이더 전체 컨테이너 */
+.slider-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 50px;
+}
+
+/* 슬라이드 트랙 */
+.card-box {
+  display: flex;
+  background-color: #1B3A4B;
+  animation: slide 30s infinite linear;
+  width: max-content;
+}
+
+/* 슬라이드 하나 (카드) */
+.B {
+  width: 544px;
+  height: 650px;
+  margin: 20px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 18px;
+}
+.B:hover {cursor: pointer;-webkit-transform: scale(0.9);
+  transform: scale(0.9); transition: 0.9s;}
+
+/* 이미지 박스 */
+.img-box {
+  width: 464px;
+  height: 464px;
+  overflow: hidden;
+  border-radius: 18px;
+  margin-top: 15px;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* 텍스트 영역 */
+.text-box2 {
+  width: 467px;
+  height: 140px;
+  color: #ffffff;
+  
+  margin-top: 5px;
+}
+
+.text-box2 h3 {
+  font-size: 35px;
+}
+
+.text-box2 h5 {
+  font-weight: 100;
+  font-size: 30px;
+}
+
+/* 슬라이드 애니메이션 */
+@keyframes slide {
+  0% { transform: translateX(10); }
+  20% { transform: translateX(-564px); }   /* 544 + 20px margin */
+  40% { transform: translateX(-1000px); }
+
+
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}

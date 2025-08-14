@@ -1,0 +1,82 @@
+.text-box-c {
+    width: 1920px; height: 97px; justify-content: center; align-items: center; text-align: center;
+    margin: 30px;
+}
+
+.donation {width: 1920px; height: 968px; justify-content: center; align-items: center; margin-bottom: 65px;} 
+.donation img {width: 1920px; height: 968px; object-fit: cover;}
+
+.text-box-b {z-index: 50; position: absolute; text-align: center; align-items: center; width: 1316px; height: 300px;
+ transform: translate(24%, 100%);}
+.text-box-b h1 {width: 1316px;  color: #fff;}
+.text-box-b p {font-size: 45px;  color: #fff;}
+
+.d-button {  width: 350px; height: 80px;   margin-top: 30px; background-color: #6FBEDB ; border-radius: 50px; opacity: 0.9;
+
+      -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+
+
+}
+
+.donation-button p {font-size: 35px;}
+
+
+.donation-button {text-decoration: none; text-align: center;
+
+  
+
+}
+.d-button:hover {  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  cursor: pointer;}
+.donation-button .done {padding: 15px;}
+
+.donation .overlay{
+    position: absolute;
+        width: 1920px; 
+        height: 968px;
+        background-color: rgba(0,0,0,0.3);
+        z-index: 20;
+
+}
+
+.donation-box {
+    width: 1920px;
+    height: 968px;
+    background-color: #1B3A4B ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    margin-top: 150px;
+   
+}
+
+.imgbox3 {
+    width: 960px;
+    height: 968px ;
+    background-color: #6FBEDB;
+    
+}
+
+.imgbox3 img {width: 960px; height: 968px; object-fit: cover; }
+
+.subgroup2 {
+    width: 960px;
+    height: 968px;
+   
+}
+
+
+
+.sub6 {width: 800px; height: 600px;  color: white;
+     justify-content: center; margin-top: 25%; }
+
+     .sub6 h3 {font-size: 35px; margin-bottom: 20px;}
+     .sub6 p {font-size: 25px;}
