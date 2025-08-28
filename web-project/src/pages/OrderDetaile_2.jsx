@@ -3,6 +3,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './OrderDetail_2.css'
 
+// const OrderDetaile_2 = () => {
+//   const stored = JSON.parse(localStorage.getItem('cartProduct'));
+
+//   if (!stored) return (
+//     <div className="D-D">
+//       <h1>주문내역 상세</h1>
+//       <p>주문정보가 없습니다.</p>
+//     </div>
+//   );
+
+//   // 오늘 날짜를 YYYY-MM-DD로
+//   const today = new Date();
+//   const formattedDate = today.toISOString().split('T')[0];
+
+
+
 const OrderDetaile_2 = () => {
   const stored = JSON.parse(localStorage.getItem('cartProduct'));
 
@@ -16,6 +32,25 @@ const OrderDetaile_2 = () => {
   // 오늘 날짜를 YYYY-MM-DD로
   const today = new Date();
   const formattedDate = today.toISOString().split('T')[0];
+
+  // 새로 들어오는 로그인 정보에서 이름만 가져오기
+  const userName = JSON.parse(localStorage.getItem('user'))?.name || '미등록';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className="D-D-3">
@@ -31,6 +66,13 @@ const OrderDetaile_2 = () => {
 
         </div>
       <div className="D-info-3" >
+             {/* 구매자명 */}
+
+      <div className="D-user-name">
+        <p>구매자명</p>
+        <h4>{userName}</h4>
+      </div>
+        
         <div className="D-id-3">
           <p>구매일자</p>
           <h4>{formattedDate}</h4>
@@ -80,8 +122,8 @@ const OrderDetaile_2 = () => {
         </div>
       </div>
         <div className="submit-btn-wrapper3"  >
-          <Link to="/" className="submit-btn-link2">
-            <p>홈으로</p>
+          <Link to="/OrderDetaile" className="submit-btn-link3">
+            <p>돌아가기</p>
           </Link>
         </div>
       

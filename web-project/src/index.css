@@ -1,0 +1,7 @@
+/* 글로벌 스타일 */
+html, body, #root {
+
+  overflow-x: hidden; /* 가로 스크롤 제거 */
+  overflow-y: auto;   /* 세로 스크롤은 내용에 따라 자동 */
+ 
+}

@@ -5,21 +5,30 @@ import '../css/Cart2.css';
 
 const Cart2 = () => {
   
-  const navigate = useNavigate();
+const navigate = useNavigate();
   const [stored, setStored] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
+    // ✅ 로그인 여부 체크
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      alert('로그인이 필요합니다.');
+      navigate('/Login'); // 로그인 페이지로 이동
+      return;
+    }
+
+    // ✅ 장바구니 데이터 로드
     const cartData = JSON.parse(localStorage.getItem('cartProduct'));
     if (cartData) {
       setStored(cartData);
       setQuantity(cartData.quantity || 1);
     }
-  }, []);
+  }, [navigate]);
 
   const handleOrder = () => {
     localStorage.setItem('cartProduct', JSON.stringify({ ...stored, quantity }));
-    navigate('/Order2');
+    navigate('/Order2'); // ✅ 결제 페이지로 이동
   };
 
   const handleDelete = () => {
@@ -28,27 +37,15 @@ const Cart2 = () => {
   };
 
   const increase = () => {
-    if (quantity < 10) {
-      setQuantity(prev => prev + 1);
-    }
+    if (quantity < 10) setQuantity(prev => prev + 1);
   };
 
   const decrease = () => {
-    if (quantity > 1) {
-      setQuantity(prev => prev - 1);
-    }
+    if (quantity > 1) setQuantity(prev => prev - 1);
   };
 
-
   const price = Number(stored?.price?.replace(/,/g, '')) || 0;
-const qty = Number(quantity) || 0;
-const totalPrice = price * qty;
-
-
-    console.log('stored.price:', stored?.price);
-    console.log('quantity:', quantity);
-
-
+  const totalPrice = price * quantity;
 
   if (!stored) {
     return (
@@ -57,8 +54,6 @@ const totalPrice = price * qty;
       </div>
     );
   }
-
-
   return (
     <div className="cart2-box">
       <div className="title-cart">

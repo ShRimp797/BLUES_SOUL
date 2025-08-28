@@ -111,7 +111,7 @@ const Card = ({ card }) => {
       <div className="card-body">
         <h3 className="card-title">{title}</h3>
         <p className="card-content">{content}</p>
-        <h3 className="card-price">{price}</h3>
+        <h3 className="card-price">{price} 원</h3>
         
         
       </div>

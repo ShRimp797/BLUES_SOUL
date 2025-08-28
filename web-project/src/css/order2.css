@@ -1,102 +1,454 @@
-.product-summary{display: flex; width: 1500px; align-items: center; margin-left: -80px; }
-.line2 { margin-top: -20px; margin-left: -20px;
-  border-bottom: 1px solid #1B3A4B; width: 1450px; padding: 20px; opacity: 0.5; justify-content: center;
-}
+/* order2.css */
 
-
-/* join-css */
-
-.j-j {  width: 1400px; height: 1300px;
-  line-height: 44px; font-size: 30px ; color: #1B3A4B; font-weight: 300; 
-}
-
-.j-info {line-height: 100px;  font-size: 25px;}
-.j-j h1 {text-align: center; padding: 50px;}
-
-.j-info input {width: 800px; height: 35px;  border-radius: 10px; margin: 0; margin-left: 83px; font-size: 20px; align-items: center;}
-#j-name2.j-name2{width: 300px; margin-left: 20px;}
-.j-name {width: 1000px; height: 100px; display: flex; margin: 0; }
-.j-name .name {width: 1700px; height: 100px; display: flex; margin: 0; align-items: center;}
-/* .name .j-name2 {width: 200px; height: 25px;  border-radius: 10px; margin: 20; } */
-.name p {margin: 0; align-items: center;}
-.j-number {width: 1705px; height: 100px; display: flex;}
-.j-number p {width: 111px; display: flex; margin: 0; align-items: center; height: 50px;}  
-.number-box .j-number2 {width: 200px; height: 25px; margin: 20px;  border-radius: 10px;}
-
-.number-box {width: 1000px; height: 50px; display:flex ; margin:  0 ; padding: 0; align-items: center;}
-
-
-
-.j-email {display: flex; width: 1050px; align-items: center; float: left; }
-.j-email p {margin: 0; width: 200px;}
-
-.j-id {display: flex;  width: 1050px; align-items: center; float: left;}
-.j-id p {margin: 0; width: 200px;}
-.j-password {display: flex;  width: 1050px; align-items: center; float: left;}
-.j-password p {margin: 0; width: 200px;}
-.j-post {display: flex;  width: 1050px; align-items: center; float: left;}
-.j-post p {margin: 0; width: 200px;}
-.j-address {display: flex;  width: 1050px; align-items: center; float: left;} 
-.j-address p {margin: 0; width: 200px;}
-.j-delivery {display: flex;  width: 1050px; align-items: center; float: left;}
-.j-delivery p {margin: 0; width: 200px;}
-
-/* .submit-btn-link2 {
-
-  background-color: #1B3A4B;
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 20px;
-    
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-  margin-top: 30px;
-  text-align: center;
-  align-items: center;
-  display: flex;
-  width: 500px;
-  height: 60px;
-  
+/* 페이지 전체 래퍼 */
+.page-wrapper {
+  width: 1920px;
+  margin: 0 auto;
+  font-family: 'Noto Sans', sans-serif;
  
+  color: #333;
+}
+
+/* 메인 컨텐츠 */
+.page-content {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+/* 주문 컨테이너: 폼 영역 고정 1340px */
+.order-container {
+  width: 1340px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 주문 제목 */
+.order-container h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* 주문 폼 전체: 좌/우 영역 배치 */
+.order-form {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+/* 좌측 섹션: 고정 폭 */
+.left-section {
+  width: 880px; /* 1340 - 440 - 20(gap) */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 우측 섹션: 고정 폭 */
+.right-section {
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 카드 공통 스타일 */
+.card {
+  width: 100%; /* 부모 폭 기준 */
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 20px;
+}
+
+/* 카드 헤더 */
+.card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* 카드 본문 */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.product-info img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+/* 텍스트 */
+.product-text {
+  display: flex;
+   width: 550px;
+  
+  
+}
+.product-text p {
+  margin: 10px ;
+}
+.product-title {
+  font-weight: 600;
+  font-size: 16px;
+
+  
+}
+
+.product-meta,
+.product-price {
+  font-size: 14px;
+  color: #666;
+
+}
+
+/* 주문자 정보 */
+.user-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info-left p {
+  margin: 2px 0;
+}
+
+
+
+.delivery-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* 쿠폰/포인트 */
+.coupon-body .coupon-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  
+}
+.coupon-body .coupon-row-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.coupon-body .input {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.coupon-btn {
+  padding: 5px;
+  background-color: #1B3A4B;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100px;
+}
+.coupon-btn-N {
+  padding: 6px 12px;
+  background-color: #39718f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 300px;
+}
+
+
+
+.point-info {
+  font-size: 12px;
+  color: #999;
+  margin-top: 10px;
+}
+
+/* 결제 요약 카드
+.summary-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.summary-divider {
+  border-top: 1px solid #ddd;
+  margin: 8px 0;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.acc-point {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
 } */
 
-
-
-.submit-btn-wrapper2 {
+/* 결제 요약 카드 */
+.summary-body {
+  width: 425px;
+  height: 250px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 25px;  /* 각 행 사이 간격 */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding-top: 50px;
+
+  
 }
 
-.submit-btn-link2 {
+.summary-row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px 20px;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 10px;
+}
+
+.summary-divider {
+  border-top: 1px solid #ddd;
+  margin: 8px 0;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
   font-size: 16px;
-  background-color: #007bff;
-  color: white;
+  color: #222; /* 총 금액 강조 */
+}
+
+.acc-point {
+  font-size: 12px;
+  color: #666;
+
+}
+
+
+
+.card.payment-card {
+  width: 440px;
+  height: 400px;
+}
+
+
+
+
+/* 결제 방법 */
+.pay-btn-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.pay-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.bank-select {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.extra-option {
+  font-size: 14px;
+}
+
+
+.card.agree-card {
+  width: 440px;
+  height: 200px;
+}
+/* 약관 동의 및 결제 버튼 */
+.agree-body {
+  padding: 0;
+ width: 300px;
+  height: 100px;
+
+  margin-top: 20px;
+
+}
+.agree-body-check {
+  width: 220px;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+}
+.agree-row {
+  font-size: 14px;
+}
+
+.agree-row.small {
+  font-size: 12px;
+  color: #666;
+}
+
+.order-btn {
+  margin-top: 10px;
+  padding: 12px 0;
+  background-color: #1B3A4B;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 300px;
+}
+
+/* 버튼 공통 */
+.small-btn {
+  padding: 6px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
-.submit-btn-link2:hover {
-  background-color: #145369;
+/* 카드 내부 이미지나 컨텐츠가 부모 폭을 넘어가지 않도록 */
+.card img,
+.card input,
+.card select,
+.card button {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.submit-btn-link2:active {
-  background-color: #0D2B3A;
+
+
+.card.product-card {
+  width: 880px;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
 }
+.card.user-card {
+  height: 280px;
+}
+.card-body-product-info {
+  width: 800px;
+  height: 150px;
+  display: flex;
+  margin: 0;
+  align-items: center;
+ justify-content: center;
+  
+}
+
+
+
+.card-body-product-info img {margin: 0; width: 120px; height: 120px; margin-right: 50px;}
+.card-body-product-info .product-text {
+ width: 600px;
+ display: flex;
+ margin: 0;
+ 
+}
+
+.card-body-product-info .product-text p {
+  margin: 50px;
+}
+
+
+
+.card.coupon-card{
+  height: 400px;
+}
+.card.summary-card{
+  height: 500px;
+}
+.card-body.summary-body {
+  line-height: 50px;
+}
+.card.delivery-card {height: 250px; justify-content: center; align-items: center;}
+.card.delivery-card p {line-height: 30px;}
+.input {width: 300px; height: 20px;}
+
+.order-container h1{text-align: center;}
+
+.card-body-delivery { justify-content: center; align-items: center;
+margin-top: 30px;
+width: 800px;}
+
+
+.card-body-delivery-p-box {
+  width: 800px;
+ justify-content: left;
+
+}
+
+.delivery-actions{
+  width: 800px; 
+}
+
+.delivery-actions-op {
+  display: flex;
+  align-items: center;
+  gap: 20px;       /* 요소 간격 */
+  margin-top: 10px; /* 필요 시 전체 위쪽 여백 */
+}
+
+/* 내부 요소 기본 margin 제거 */
+.delivery-actions-op label,
+.delivery-actions-op select,
+.delivery-actions-op button {
+  margin: 0;
+  padding: 0;       /* 필요에 따라 padding만 조절 */
+  box-sizing: border-box;
+}
+
+.delivery-actions-op select {
+  width: 300px;
+  height: 20px;
+  border-radius: 1px;
+}
+
+.delivery-actions-op button {
+  width: 80px;
+}
+
+.coupon-row .input {padding: 20px;}
+
+.card-body.user-body {
+  width: 400px;
+  margin-left: 20px;
+
+}
+.user-info-left {line-height: 50px;}
+
+.point-info {margin-left: 213px;}
 

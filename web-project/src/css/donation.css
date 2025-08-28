@@ -18,9 +18,7 @@
     font-size: 25px; transform: translate(-50%, -50%);   top: 62%; left: 50%;
      font-weight: lighter;   } 
 .title2 img {width: 1920px; height: 695px; object-fit: cover; ;}
-.title2 { width: 1920px; height: 695px;  position: relative; 
-  overflow: hidden; }
-
+.title2 { width: 1920px; height: 695px;  position: relative; justify-content: center; align-items: center; display: flex; background-color: #061C28; overflow: hidden; }
 
 .sub4 { width: 1920px; height: 695px; background-color: #061C28 ;
 }

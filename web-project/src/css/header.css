@@ -1,15 +1,16 @@
 *{margin: 0 auto; }
 
 .header {
-    width: 1920px; height: 129px; background-color: #ffffff; 
+    width: 1920px; height: 90px; background-color: #ffffff; 
     display: flex;
     align-items: center;
- 
+  
+
   font-family: 'Pretendard', Black;
   
 }
 
-.header img {object-fit: cover; width: 110px; height: 110px;
+.header img {object-fit: cover; width: 80px; height: 80px;
 
  -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -44,7 +45,7 @@
     display: flex;
     width: 1212PX;
     height: 90PX;
-    
+  
    align-items: center;
    justify-content: center;
 
@@ -59,10 +60,10 @@
 
 }
 .menu .link {
-    font-size: 30px;
+    font-size: 20px;
     text-decoration: none;
     color: #1B3A4B;
-
+  
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -83,7 +84,7 @@
 
 }
 .menu .Donation{
-    font-size: 30px;
+    font-size: 20px;
     margin: 80px;
     text-decoration: none;
     color: #6FBEDB;
@@ -118,7 +119,7 @@
 }
 
 .user .link2 {
-    font-size: 20px; margin: 20px;
+    font-size: 18px; margin: 20px;
     text-decoration: none;
     
     color: #1B3A4B;
@@ -143,3 +144,5 @@
    transition: 0.5s;
    cursor: pointer;
 }
+
+.dropdown {width: 300px; text-align: center; margin: 0;}

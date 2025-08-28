@@ -1,33 +1,10 @@
-/* .D-D2 {height: 800px; padding: 80px; margin-top: 30px;}
+
+.D-D2 {min-height: auto; }
 .D-D2_info {width: 700px; font-weight: bold; line-height: 50px; }
 .D-D2_info .d2-title {font-size: 25px;}
 .D-D2_info .d2-price {font-size: 45px;}
-.D-D2_line {border: 1px solid #838383; width: 500px; margin: 0; margin-left: -10px; margin-top: 50px; margin-bottom: 20px;}
-.D-D-3 {width: 700px; height: 1000px; background-color: 
-  #fcfcfc; border: 1px solid #d8d8d8; border-radius: 10px; padding: 20px; margin-top: 30px;
-line-height: 40px; align-items: center;}
-.D-info-3 {width: 700px; margin-top: 50px; font-size: 20px; }
-.D-info-3 p  {margin: 0;}
-
-.Done-line {border: 1px dashed #9e9e9e; width: 500px; margin: 0; margin-left: -10px; margin-top: 20px; margin-bottom: 20px;}
-
-
-.D-name-3 {width: 700px;  height: 50px; display: flex; align-items: center; }
-.D-number-3 {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
-.D-id-3 {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
-.D-post-3 {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
-.D-address-3 {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
-.D-password-3 {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
-.D-post-3 {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
- */
-
-
-.D-D2 {height: 50px; padding: 80px; margin-top: 30px;}
-.D-D2_info {width: 700px; font-weight: bold; line-height: 50px; }
-.D-D2_info .d2-title {font-size: 25px;}
-.D-D2_info .d2-price {font-size: 45px;}
-.D-D2_line {border: 1px solid #838383; width: 500px; margin: 0; margin-left: -10px; margin-top: 50px; margin-bottom: 20px;}
-.D-D-3 {width: 700px; height: 400px; background-color: 
+.D-D2_line {border: 1px solid #838383; width: 500px; margin: 0; margin-left: -10px;}
+.D-D-3 {width: 700px; height: 1800px; background-color: 
   #fcfcfc; border: 1px solid #d8d8d8; border-radius: 10px; padding: 20px; margin-top: 30px;
 line-height: 40px; align-items: center;}
 .D-info-3 {width: 700px; margin-top: 50px; font-size: 20px; }
@@ -43,8 +20,9 @@ line-height: 40px; align-items: center;}
 .D-ORDER-NO {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
 .D-PAYMENT {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
 .D-TOTAL-PRICE {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
+.D-NAME {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
 
-.btn-box {margin-top: 80px;}
+/* .btn-box {margin-top: 80px;}
 
 
 .submit-btn-wrapper4 {
@@ -88,4 +66,38 @@ line-height: 40px; align-items: center;}
 .submit-btn-link4:active {
   background-color: #0D2B3A;
 }
+ */
 
+
+
+.submit-btn-wrapper9 {
+  flex: 1 1 45%;             /* 버튼이 컨테이너 안에서 유연하게 크기 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0D2B3A;
+  border-radius: 10px;
+  
+  margin-top: 10px;
+  width: 500px;
+  height: 40px;
+}
+
+.submit-btn-wrapper9 p {
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+.submit-btn-wrapper9:hover {
+  background-color: #145369;
+}
+
+
+.submit-btn-link9 {
+  margin-top: 20px;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.btn-box {margin-top: 100px;}

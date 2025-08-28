@@ -1,11 +1,12 @@
+
 .shop-container {
-  max-width: 2000px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 20px;
-  text-decoration: none;
 }
 
 .shop-title {
+  font-size: 45px;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -14,7 +15,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 100px;
+  gap: 40px;
   padding: 15px;
   border-radius: 10px;
 }
@@ -22,3 +23,4 @@
 .card-link {
   text-decoration: none;
 }
+

@@ -19,6 +19,30 @@ line-height: 40px; align-items: center;}
 .D-address-3 {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
 .D-password-3 {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
 .D-post-3 {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
+.D-user-name {width: 700px; display: flex; height: 50px; align-items: center; text-align: center;}
+.submit-btn-wrapper3 {margin-top: 20px; width: 500px; margin-left: -20px; margin-left: 5;}
 
-.submit-btn-wrapper3 {margin-top: 50px; width: 500px; margin-left: -20px; }
 
+.submit-btn-link3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #1B3A4B;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.submit-btn-link3:hover {
+  background-color: #145369;
+}
+
+.submit-btn-link3:active {
+  background-color: #0D2B3A;
+}

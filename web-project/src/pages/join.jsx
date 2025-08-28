@@ -22,9 +22,10 @@ const Join = () => {
     <>
        <div className="j-j">
         <h1>회원가입</h1>
+        <div className="j-j-info">
           <p>회원가입 정보</p>
           <p>주문내역 확인 등 마이페이지 이용 시 꼭 필요한 정보입니다.</p>
-
+    </div>
           <div className="j-info">
 
             <div className="j-name">
@@ -100,8 +101,8 @@ const Join = () => {
 
 
           {/* 가입 버튼 */}
-      <div className="submit-btn-wrapper2">
-        <button className="submit-btn-link2"  onClick={handleJoinClick}>
+      <div className="submit-btn-wrapper2-1">
+        <button className="submit-btn-link2-1"  onClick={handleJoinClick}>
           가입하기
         </button>
       </div>
@@ -112,4 +113,4 @@ const Join = () => {
   )
 }
 
-export default Join
+export default Join;

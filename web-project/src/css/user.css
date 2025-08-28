@@ -1,66 +1,71 @@
-.U-j {  width: 1400px; height: 1300px;
-  line-height: 44px; font-size: 30px ; color: #1B3A4B; font-weight: 300; 
+
+
+ .U-j {
+  width: 1000px; /* 기존 1400px → 1000px */
+  line-height: 36px; /* 기존 44px → 36px */
+  font-size: 24px; /* 기존 30px → 24px */
+  color: #1B3A4B;
+  font-weight: 300;
+  margin: 0 auto; /* 중앙 정렬 */
 }
 
-.U-info {line-height: 100px;  font-size: 25px;}
-.U-j h1 {text-align: center; padding: 50px;}
+.U-j h1 {
+  text-align: center;
+  padding: 30px; /* 기존 50px → 30px */
+}
 
-.U-info input {width: 800px; height: 35px;  border-radius: 10px; margin: 0; margin-left: 83px; font-size: 20px; align-items: center;}
-#U-name2.U-name2{width: 300px; margin-left: 20px; height: 25px;}
-.U-name {width: 1000px; height: 100px; display: flex; margin: 0; }
-.U-name .name {width: 1700px; height: 100px; display: flex; margin: 0; align-items: center;}
-/* .name .U-name2 {width: 200px; height: 25px;  border-radius: 10px; margin: 20; } */
-.name p {margin: 0; align-items: center;}
-.U-number {width: 1705px; height: 100px; display: flex;}
-.U-number p {width: 111px; display: flex; margin: 0; align-items: center; height: 50px;}  
-.number-box .U-number2 {width: 200px; height: 25px; margin: 20px;  border-radius: 10px;}
+.U-info {
+  line-height: 70px; /* 기존 100px → 70px */
+  font-size: 20px; /* 기존 25px → 20px */
+}
 
-.number-box {width: 1000px; height: 50px; display:flex ; margin:  0 ; padding: 0; align-items: center;}
+.U-name, .U-number, .U-email, .U-password-1, .U-post, .U-address {
+  display: flex;
+  align-items: center;
+  width: 800px; /* 기존 1050px → 800px */
+  margin-bottom: 15px;
+}
 
-.U-number .number-box p {display: flex;}
+.U-name p, .U-number p, .U-email p, .U-password-1 p, .U-post p, .U-address p {
+  width: 150px; /* 기존 200px → 150px */
+  margin: 0;
+}
 
-.U-email {display: flex; width: 1050px; align-items: center; float: left; }
-.U-email p {margin: 0; width: 200px;}
+.U-name-N, .U-number-phone, .U-number-birth, .U-email-A {
+  width: 350px; /* 기존 500px → 350px */
+  height: 22px; /* 기존 25px → 22px */
+  font-size: 18px; /* 기존 25px → 18px */
+  font-weight: bold;
+  padding-left: 8px;
+}
 
-.U-id {display: flex;  width: 1050px; align-items: center; float: left;}
-.U-id p {margin: 0; width: 200px;}
-.U-password {display: flex;  width: 1050px; align-items: center; float: left;}
-.U-password p {margin: 0; width: 200px;}
+.U-pw-1, .Upost, .address {
+  width: 600px; /* 기존 800px → 600px */
+  height: 30px; /* 기존 35px → 30px */
+  border-radius: 8px;
+  font-size: 18px; /* 기존 20px → 18px */
+}
 
-.U-post {display: flex;  width: 1050px; align-items: center; float: left;}
-.U-post p {margin: 0; width: 200px;}
-.U-address {display: flex;  width: 1050px; align-items: center; float: left;} 
-.U-address p {margin: 0; width: 200px;}
-.U-delivery {display: flex;  width: 1050px; align-items: center; float: left;}
-.U-delivery p {margin: 0; width: 200px;}
-
-.submit-btn-link2 {
-
+.submit-btn-link2-1 {
   background-color: #1B3A4B;
-  color: rgb(255, 255, 255);
+  color: #fff;
   border: none;
-  border-radius: 20px;
-    
-  font-size: 20px;
+  border-radius: 15px; /* 기존 20px → 15px */
+  font-size: 18px; /* 기존 20px → 18px */
   font-weight: bold;
   cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-  margin-top: 30px;
-  text-align: center;
-  align-items: center;
+  width: 300px; /* 기존 500px → 300px */
+  height: 50px; /* 기존 60px → 50px */
   display: flex;
-  width: 500px;
-  height: 60px;
-  
- 
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto; /* 중앙 정렬 */
 }
 
-.submit-btn-link2:hover {
+.submit-btn-link2-1:hover {
   background-color: #145369;
 }
 
-.submit-btn-link2:active {
+.submit-btn-link2-1:active {
   background-color: #0D2B3A;
 }
-

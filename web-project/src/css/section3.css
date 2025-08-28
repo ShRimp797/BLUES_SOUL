@@ -11,7 +11,7 @@ h1 {  width:581px ; height: 78px;  font-size: 65px; color: #1B3A4B;}
 /* 바깥 카드 섹션 */
 .card {
   width: 1920px;
-  min-height: 100vh; /* 또는 auto */
+  
   padding-bottom: 100px; /* 하단 공간 확보 */
   box-sizing: border-box;
   overflow: visible;

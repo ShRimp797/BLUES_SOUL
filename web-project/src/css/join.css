@@ -1,4 +1,4 @@
-.j-j {  width: 1400px; height: 1300px;
+/* .j-j {  width: 1400px; height: 1300px;
   line-height: 44px; font-size: 30px ; color: #1B3A4B; font-weight: 300; 
 }
 
@@ -9,7 +9,7 @@
 #j-name2.j-name2{width: 300px; margin-left: 20px;}
 .j-name {width: 1000px; height: 100px; display: flex; margin: 0; }
 .j-name .name {width: 1700px; height: 100px; display: flex; margin: 0; align-items: center;}
-/* .name .j-name2 {width: 200px; height: 25px;  border-radius: 10px; margin: 20; } */
+
 .name p {margin: 0; align-items: center;}
 .j-number {width: 1705px; height: 100px; display: flex;}
 .j-number p {width: 111px; display: flex; margin: 0; align-items: center; height: 50px;}  
@@ -33,28 +33,6 @@
 .j-delivery {display: flex;  width: 1050px; align-items: center; float: left;}
 .j-delivery p {margin: 0; width: 200px;}
 
-/* .submit-btn-link2 {
-
-  background-color: #1B3A4B;
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 20px;
-    
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-  margin-top: 30px;
-  text-align: center;
-  align-items: center;
-  display: flex;
-  width: 500px;
-  height: 60px;
-  
- 
-} */
-
 
 
 .submit-btn-wrapper2 {
@@ -63,7 +41,7 @@
   align-items: center;
 }
 
-.submit-btn-link2 {
+.submit-btn-link2-1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,11 +62,143 @@
 
 
 
-.submit-btn-link2:hover {
+.submit-btn-link2-1:hover {
   background-color: #145369;
 }
 
-.submit-btn-link2:active {
+.submit-btn-link2-1:active {
+  background-color: #0D2B3A;
+}
+ */
+
+
+
+ /* --------------------------------------------
+   폼 컨테이너
+--------------------------------------------- */
+.form-container {
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  padding: 50px; /* 필요시 여백 조절 */
+}
+
+/* 폼 박스 */
+.j-j {
+  width: 600px;            /* 전체 페이지보다 훨씬 작게 */
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-size: 16px;
+  color: #1B3A4B;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 폼 제목 */
+.j-j h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* --------------------------------------------
+   폼 내부 정보
+--------------------------------------------- */
+.j-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* 행 구성 */
+.j-name, .j-number, .j-email, .j-id, .j-password, .j-post, .j-address, .j-delivery {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.j-info p {
+  width: 120px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* 입력 필드 */
+.j-info input,
+.input-text,
+.input-small {
+  width: 100%;
+  height: 35px;
+  padding: 0 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  line-height: normal;
+  box-sizing: border-box;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* 작은 input */
+.input-small {
+  width: 70px;
+}
+
+/* 숫자 박스 */
+.number-box {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  width: 100%;
+}
+
+/* --------------------------------------------
+   버튼
+--------------------------------------------- */
+.submit-btn-wrapper2 {
+  display: flex;
+  justify-content: center; /* 버튼은 폼 하단 가운데 */
+  margin-top: 25px;
+}
+
+.submit-btn-link2-1 {
+  display: flex;
+  justify-content: center; /* 텍스트 가로 중앙 */
+  align-items: center;     /* 텍스트 세로 중앙 */
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 150px; /* 버튼 크기 안정화 */
+}
+
+.submit-btn-link2-1:hover {
+  background-color: #145369;
+}
+
+.submit-btn-link2-1:active {
   background-color: #0D2B3A;
 }
 
+.name {display: flex; align-items: center; gap: 10px; width: 100%; margin-left: -25px;}
+
+#j-name2.j-name2 {width: 200px;}
+
+
+
+.j-j-info {flex-direction: column;  width: 660px; font-size: 12px; 
+margin-left: 20px; margin-top: -50px; color: #6e6e6e;}

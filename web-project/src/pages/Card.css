@@ -1,49 +1,49 @@
-.cardog {
-  width: 500px;
-  height: 400px;
+
+
+
+
+.cardog { 
+  width: 300px;
   border: 1px solid #f0f0f0;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  /* margin: 10px; */
+  background-color: #fff;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  cursor: pointer;
-   min-height: 660px; 
-  margin: 0;
-  padding: 0;
-
-
-
- -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-
-
-
-
-
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
-.cardog:hover{
- -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  
+.cardog:hover {
+  transform: scale(1.05);
 }
 
+/* .card-image {
+  margin-top: 20px;
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+} */
+
+
+.card-image-wrapper {
+  width: 100%;
+  height: 200px; /* 카드에서 이미지 영역 고정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9; /* 여백 색 */
+  overflow: hidden;
+}
 
 .card-image {
-    margin-top: 30px;
-  width: 100%;
-   max-height: 450px;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
+
 
 
 .card-body {
@@ -52,35 +52,27 @@
 }
 
 .card-title {
-  font-size: 35px;
+  font-size: 22px;
   font-weight: bold;
-  margin-left: 20px;
+  margin: 10px 0 5px 10px;
   color: #000;
-  text-decoration: none;
-  list-style: none;
 }
 
 .card-content {
   color: #ACACAC;
-  margin-left: 20px;
-  font-size: 28px;
-  text-decoration: none;
-  list-style: none;
+  margin: 5px 0 10px 10px;
+  font-size: 16px;
 }
 
 .card-price {
-  font-size: 35px;
+  font-size: 20px;
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: 10px;
   color: #000;
-  text-decoration: none;
-  list-style: none;
 }
 
-/* 좋아요 기능 스타일 (원할 경우 사용) */
 .card-like {
-  margin-left: 20px;
-  margin-top: 10px;
+  margin: 10px 0 0 10px;
   display: flex;
   align-items: center;
   gap: 5px;

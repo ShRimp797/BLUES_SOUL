@@ -1,17 +1,18 @@
 
-
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import '../css/DNS.css';
-const DNS = () => {
-  const stored = JSON.parse(localStorage.getItem('orderData'));
 
-  if (!stored) {
+const DNS = () => {
+  const location = useLocation();
+  const { type, data, user} = location.state || {};
+    const userName = JSON.parse(localStorage.getItem('user'))?.name || '미등록';
+  if (!data) {
     return (
       <div className="D-D">
-        <h1>주문내역 상세</h1>
-        <p>주문정보가 없습니다.</p>
+        <h1>상세 정보</h1>
+        <p>정보가 없습니다.</p>
+        <Link to="/"><button className="submit-btn-link3">홈으로</button></Link>
       </div>
     );
   }
@@ -20,62 +21,87 @@ const DNS = () => {
     <div className="D-D-3">
       <div className="D-D2">
         <div className="D-D2_info">
-          <p className='d2-title'>후원상세</p>
-          <p className='d2-price'>{stored.totalPrice || '0 원'}</p>
-          <p style={{fontWeight:'lighter', color: '#727272ff', paddingTop: '5px'}}>
-            * 후원정보를 확인하세요
-          </p>
+          <p className="d2-title">{type === 'order' ? '주문 상세' : '후원 상세'}</p>
           <div className="D-D2_line"></div>
         </div>
 
-        <div className="D-info-3">
-          <div className='D-DATE'>
-            <p>구매자명</p>
-            <h4>USER</h4>
-          </div>
-          <div className='D-DATE'>
-            <p>구매일자</p>
-            <h4>{stored.date}</h4>
-          </div>
-          <div className='D-info-name'>
-            <p>제품명</p>
-            <h4>{stored.title}</h4>
-          </div>
-          <div className='D-QUANTITY'>
-            <p>구매 수량</p>
-            <h4>{stored.quantity} 개</h4>
-          </div>
-          <div className='D-SIZE'>
-            <p>제품크기</p>
-            <h4>{stored.size} cm</h4>
-          </div>
-          <div className='D-TOTAL-PRICE'>
-            <p>후원금액</p>
-            <h4>{stored.totalPrice}</h4>
-          </div>
-          <div className='D-ORDER-NO'>
-            <p>주문번호</p>
-            <a href="" style={{textDecoration: 'none', color: '#000'}}><h4>{stored.orderNumber}</h4></a>
-          </div>
-          <div className='D-PAYMENT'>
-            <p>결제방법</p>
-            <h4 style={{color: '#0051e9ff'}}>{stored.paymentMethod}</h4>
-          </div>
-        </div>
-    <div className="btn-box">
+        {type === 'order' && (
+          <div className="D-info-3">
+            <div className="D-info-name">
+              <p>구매자명</p>
+              <h4>{userName}</h4>
+            </div>
+             
 
-          <Link to="/" className="submit-btn-link3">
-        <div className="submit-btn-wrapper4">
-            <p>홈으로</p>
-        </div>
-          </Link>
-          <Link to="/Donationsuccess" className="submit-btn-link3">
-        <div className="submit-btn-wrapper4">
-            <p>돌아가기</p>
-        </div>
-          </Link>
+            <div className="D-DATE">
+              <p>구매일자</p>
+              <h4>{data.date}</h4>
+            </div>
+            <div className="D-name-3">
+              <p>제품명</p>
+              <h4>{data.title}</h4>
+            </div>
+            <div className="D-QUANTITY">
+              <p>구매 수량</p>
+              <h4>{data.quantity} 개</h4>
+            </div>
+            <div className="D-SIZE">
+              <p>제품크기</p>
+              <h4>{data.size} cm</h4>
+            </div>
+            <div className="D-TOTAL-PRICE">
+              <p>총금액</p>
+              <h4>{data.totalPrice}</h4>
+            </div>
+            <div className="D-ORDER-NO">
+              <p>주문번호</p>
+              <h4>{data.orderNumber}</h4>
+            </div>
+            <div className="D-PAYMENT">
+              <p>결제방법</p>
+              <h4>{data.paymentMethod}</h4>
+            </div>
+          </div>
+        )}
 
-    </div>
+        {type === 'donation' && (
+          <div className="D-info-3">
+            <div className="D-info-name">
+              <p>후원자명</p>
+              <h4>{data.userName}</h4>
+            </div>
+           
+            <div className="D-DATE">
+              <p>신청일</p>
+              <h4>{data.date}</h4>
+            </div>
+            <div className="D-NAME">
+              <p>상품명</p>
+              <h4>{data.option}</h4>
+            </div>
+            <div className="D-TOTAL-PRICE">
+              <p>후원금액</p>
+              <h4>{data.amount}</h4>
+            </div>
+            <div className="D-ORDER-NO">
+              <p>후원번호</p>
+              <h4>{data.donationNumber}</h4>
+            </div>
+            <div className="D-PAYMENT">
+              <p>결제방법</p>
+              <h4>{data.paymentMethod}</h4>
+            </div>
+          </div>
+        )}
+
+        <div className="btn-box">
+          <Link to="/" className="submit-btn-link9">
+            <div className="submit-btn-wrapper9"><p>홈으로</p></div>
+          </Link>
+          <Link to="/Donationsuccess" className="submit-btn-link9">
+            <div className="submit-btn-wrapper9"><p>돌아가기</p></div>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,148 +1,164 @@
-//수정
 
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import '../css/donationinfo.css';
 import { useNavigate } from 'react-router-dom';
 
 const Donationinfo = () => {
-  const [selectedCycle, setSelectedCycle] = useState(null);         // 정기/일시
-  const [selectedAmount, setSelectedAmount] = useState(null);       // 금액
-  const [selectedAmount2, setSelectedAmount2] = useState(null);     // 캠페인
-  const [selectedPayment, setSelectedPayment] = useState(null);     // 결제수단
-  const [selectedDon, setSelectedDon] = useState(null);             // 결제수단(사용처 불명)
-
   const navigate = useNavigate();
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+  // 후원 정보 상태
+  const [selectedCycle, setSelectedCycle] = useState(null);         // 정기/일시
+  const [selectedAmount, setSelectedAmount] = useState(null);       // 금액
+  const [selectedAmount2, setSelectedAmount2] = useState(null);     // 옵션
+  const [selectedPayment, setSelectedPayment] = useState(null);     // 결제수단
 
-  // 결제수단 선택 여부 확인
-  if (!selectedPayment) {
-    alert("결제방법을 선택해주세요.");
-    return; // 뒤로 안 넘어감
-  }
+  // 사용자 정보 상태
+  const [userName, setUserName] = useState('');                     
+  const [userPhone, setUserPhone] = useState(['', '', '']);         
+  const [userEmail, setUserEmail] = useState('');                   
 
-  alert("후원이 완료되었습니다.");
-  navigate("/DonationCheck");
-};
+  // 로그인 유저 불러오기
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUserName(storedUser.name || '');
+      const phoneArr = storedUser.phone ? storedUser.phone.split('-') : ['', '', ''];
+      setUserPhone(phoneArr);
+      setUserEmail(storedUser.email || '');
+    }
+  }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!selectedPayment) {
+      alert("결제방법을 선택해주세요.");
+      return;
+    }
+
+    // 사용자 정보 체크 (비로그인 시)
+    if (!userName || !userPhone.every(p => p) || !userEmail) {
+      alert("후원자 정보를 모두 입력해주세요.");
+      return;
+    }
+
+    const newDonation = {
+      userName,
+      phone: userPhone.join('-'),
+      email: userEmail,
+      cycle: selectedCycle,
+      amount: selectedAmount,
+      option: selectedAmount2,
+      paymentMethod: selectedPayment,
+      date: new Date().toLocaleDateString(),
+      donationNumber: 'D' + Date.now()
+    };
+
+    const existing = JSON.parse(localStorage.getItem('donationData')) || [];
+
+    const isDuplicate = existing.some(d => 
+      d.userName === newDonation.userName &&
+      d.amount === newDonation.amount &&
+      d.option === newDonation.option &&
+      d.date === newDonation.date
+    );
+
+    if (!isDuplicate) {
+      localStorage.setItem('donationData', JSON.stringify([...existing, newDonation]));
+    }
+
+    alert("후원이 완료되었습니다.");
+    navigate("/Donationsuccess");
+  };
 
   return (
-    <>
-      <div className="d-info">
-        <div className="d-title">
-          <h1>후원 정보</h1>
+    <div className="d-info">
+      <div className="d-title"><h1>후원 정보</h1></div>
+
+      <div className="money">
+        <div className="m-title">
+          <p>모금상품</p>
+          <p>세계자연기금 후원</p>
         </div>
 
-        <div className="money">
-          <div className="m-title">
-            <p>모금상품</p>
-            <p>세계자연기금 후원</p>
-          </div>
-
-          {/* 후원주기 */}
-          <div className="m-give">
-            <p>후원주기</p>
-            <button
-              className={`m-btn ${selectedCycle === '정기' ? 'active' : ''}`}
-              onClick={() => setSelectedCycle('정기')}
-            >
-              정기
-            </button>
-            <button
-              className={`m-btn ${selectedCycle === '일시' ? 'active' : ''}`}
-              onClick={() => setSelectedCycle('일시')}
-            >
-              일시
-            </button>
-          </div>
-
-          {/* 후원금액 */}
-          <div className="m-money">
-            <p>후원금액</p>
-            {['3,000원', '10,000원', '30,000원', '50,000원', '100,000원'].map(amount => (
-              <button
-                key={amount}
-                className={`m-btn ${selectedAmount === amount ? 'active' : ''}`}
-                onClick={() => setSelectedAmount(amount)}
-              >
-                {amount}
-              </button>
-            ))}
-          </div>
-
-          {/* 캠페인 */}
-          <div className="m-money">
-            <p>후원옵션</p>
-            {['검은머리갈매기', '깨끗한 바다만들기', '일반후원'].map(amount2 => (
-              <button
-                key={amount2}
-                className={`m-btn ${selectedAmount2 === amount2 ? 'active' : ''}`}
-                onClick={() => setSelectedAmount2(amount2)}
-              >
-                {amount2}
-              </button>
-            ))}
-          </div>
+        <div className="m-give">
+          <p>후원주기</p>
+          <button className={`m-btn ${selectedCycle==='정기'?'active':''}`} onClick={()=>setSelectedCycle('정기')}>정기</button>
+          <button className={`m-btn ${selectedCycle==='일시'?'active':''}`} onClick={()=>setSelectedCycle('일시')}>일시</button>
         </div>
 
-        <div className="d-user">
-          <p>후원자 정보</p>
-          <p>후원하기전 꼭 다시한번 확인해주세요!</p>
-
-          <div className="user-info">
-            <div className="name2">
-              <p>이름</p>
-              <input type="text" className="user-name" id="user-name" autoFocus />
-            </div>
-
-            <div className="number">
-              <p>휴대전화</p>
-              <div className="number-box">
-                <input type="text" className="user-number" maxLength={3} />-
-                <input type="text" className="user-number" maxLength={4} />-
-                <input type="text" className="user-number" maxLength={4} />
-              </div>
-            </div>
-
-            <div className="u-email">
-              <p>이메일</p>
-              <input type="email" className="user-email" id="user-email" />
-            </div>
-          </div>
+        <div className="m-money">
+          <p>후원금액</p>
+          {['3,000원','10,000원','30,000원','50,000원','100,000원'].map(a=>(<button key={a} className={`m-btn ${selectedAmount===a?'active':''}`} onClick={()=>setSelectedAmount(a)}>{a}</button>))}
         </div>
 
-        <div className="line"></div>
-
-        {/* 결제 정보 */}
-        <div className="pay">
-          <p>결제 정보</p>
-          <div className="pay-btn">
-            <button
-              className={`pay-button ${selectedPayment === '카드' ? 'active' : ''}`}
-              onClick={() => setSelectedPayment('카드')}
-            >
-              신용/체크카드
-            </button>
-            <button
-              className={`pay-button ${selectedPayment === '계좌이체' ? 'active' : ''}`}
-              onClick={() => setSelectedPayment('계좌이체')}
-            >
-              실시간 계좌이체
-            </button>
-          </div>
-        </div>
-
-        <div className="line"></div>
-
-        {/* 후원하기 버튼 */}
-        <div className="submit-btn-wrapper">
-          <button className="submit-btn-link" onClick={handleSubmit}>
-            <p>후원하기</p>
-          </button>
+        <div className="m-money">
+          <p>후원옵션</p>
+          {['검은머리갈매기','깨끗한 바다만들기','일반후원'].map(a=>(<button key={a} className={`m-btn ${selectedAmount2===a?'active':''}`} onClick={()=>setSelectedAmount2(a)}>{a}</button>))}
         </div>
       </div>
-    </>
+
+      {/* 사용자 정보 */}
+      <div className="d-user">
+        <p>후원자 정보</p>
+        <p>후원하기 전 꼭 다시 한 번 확인해주세요!</p>
+        <div className="user-info">
+
+          {/* 이름 */}
+          <div className="name2">
+            <p>이름</p>
+            {userName ? (
+              <p className='name2-user-name' >{userName}</p>
+            ) : (
+              <input type="text" className="user-name" value={userName} onChange={e=>setUserName(e.target.value)} placeholder="" autoFocus />
+            )}
+          </div>
+
+          {/* 휴대전화 */}
+          <div className="number">
+            <p>휴대전화</p>
+            {userPhone.some(p => p) ? (
+              <p className='number-user-phone' style={{marginLeft: '170px'}}>{userPhone.join('-')}</p>
+            ) : (
+              <div className="number-box">
+                <input type="text" className="user-number" maxLength={3} value={userPhone[0]} onChange={e=>setUserPhone([e.target.value,userPhone[1],userPhone[2]])} placeholder=""/>-
+                <input type="text" className="user-number" maxLength={4} value={userPhone[1]} onChange={e=>setUserPhone([userPhone[0],e.target.value,userPhone[2]])} placeholder=""/>-
+                <input type="text" className="user-number" maxLength={4} value={userPhone[2]} onChange={e=>setUserPhone([userPhone[0],userPhone[1],e.target.value])} placeholder=""/>
+              </div>
+            )}
+          </div>
+
+          {/* 이메일 */}
+          <div className="u-email">
+            <p>이메일</p>
+            {userEmail ? (
+              <p className='u-email-user-email' style={{marginLeft: '220px'}}>{userEmail}</p>
+            ) : (
+              <input type="email" className="user-email" value={userEmail} onChange={e=>setUserEmail(e.target.value)} placeholder=""/>
+            )}
+          </div>
+
+        </div>
+      </div>
+
+      <div className="line"></div>
+
+      {/* 결제 정보 */}
+      <div className="pay">
+        <p>결제 정보</p>
+        <div className="pay-btn">
+          <button className={`pay-button ${selectedPayment==='카드'?'active':''}`} onClick={()=>setSelectedPayment('카드')}>신용/체크카드</button>
+          <button className={`pay-button ${selectedPayment==='계좌이체'?'active':''}`} onClick={()=>setSelectedPayment('계좌이체')}>실시간 계좌이체</button>
+        </div>
+      </div>
+
+      <div className="line"></div>
+
+      <div className="submit-btn-wrapper">
+        <button className="submit-btn-link" onClick={handleSubmit}><p>후원하기</p></button>
+      </div>
+    </div>
   );
 };
 

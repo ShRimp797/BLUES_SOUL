@@ -47,23 +47,23 @@
 .m-money {width: 1665px; height: 61px; display: flex;  align-items: center; padding-top: 15px;}
 .m-money p {width: 111px; height: 36px; margin: 0; text-align: center; display: flex; align-items: center;}
 
-.line {border-bottom: 1px solid #1B3A4B; width: 1665px; padding: 20px; opacity: 0.5;}
+.line {border-bottom: 1px solid #1B3A4B; width: 1665px; padding: 20px; opacity: 0.5; margin-top: 45px;}
 
 .d-user { width: 1665px; height: 300px;  padding-top: 30px; margin: 0; margin-top: 80px;}
 .d-user p {line-height: 20px; font-size: 17px; font-weight: 400; color: #5d8194; margin-left: 15px; margin-top: 5px;}
 
-
+.user-info {margin-top: 80px;}
 .user-info .name2 { display: flex; margin: 0; width: 500px; margin-left: 0px; margin-top: 20px; margin-bottom: 20px;}
 .user-info .user-name {width: 246px; height: 30px; border-radius: 5px;}
-.user-info .name2 p {font-size: 25px; color: #1B3A4B; font-weight: 500;}
+.user-info .name2 p {font-size: 20px; color: #1B3A4B; font-weight: 500;}
 
 .number { display: flex;  margin: 0; width: 1500px; margin-left: 0px; margin-top: 20px; margin-bottom: 20px;}
 
 .user-info .number-box {width: 819px; display: flex; margin-left: 70px;}
 .user-info .user-number {width: 100px; height: 30px; border-radius: 5px; margin: 15px;}
 
-.number p {font-size: 25px; color: #1B3A4B; font-weight: 500; margin: 0; margin-left: 10px; justify-content: center; align-items: center; display: flex;}
-.u-email p {font-size: 25px; color: #1B3A4B; font-weight: 500;width: 90px; height: 30px; border-radius: 5px;  justify-content: center; align-items: center; display: flex;
+.number p {font-size: 20px; color: #1B3A4B; font-weight: 500; margin: 0; margin-left: 10px; justify-content: center; align-items: center; display: flex;}
+.u-email p {font-size: 20px; color: #1B3A4B; font-weight: 500;width: 90px; height: 30px; border-radius: 5px;  justify-content: center; align-items: center; display: flex;
 margin: 0;}
 
 .u-email {display: flex; margin: 0; align-items: center;}
@@ -100,3 +100,4 @@ margin: 0;}
 .submit-btn-link:active {
   background-color: #0D2B3A;
 }
+

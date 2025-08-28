@@ -41,7 +41,7 @@ const OrderDetaile = () => {
       </div>
 
       <Link to="/">
-        <button className="order-btn" style={{
+        <button className="order-btn-3" style={{
           marginTop: '30px',
           width: '500px',
           height: '50px',

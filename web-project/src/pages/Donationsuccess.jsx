@@ -1,45 +1,65 @@
 
+
+
 import React from 'react';
 import '../css/donationsuccess.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Donationsuccess = () => {
-  const orderData = JSON.parse(localStorage.getItem('orderData'));
+  const navigate = useNavigate();
+  const purchaseData = JSON.parse(localStorage.getItem('orderData'));
+  const donationData = JSON.parse(localStorage.getItem('donationData')) || [];
+  const user = JSON.parse(localStorage.getItem('user')) || null; // 로그인 여부 확인
 
-  if (!orderData) {
+  const hasData = purchaseData || donationData.length > 0;
+
+  if (!hasData) {
     return (
       <div className="done-box">
-        <div className="s-title">
-          <h1>후원 내역</h1>
-        </div>
+        <div className="s-title"><h1>후원 내역</h1></div>
         <p>저장된 후원 정보가 없습니다.</p>
-        <Link to="/">
-          <button className="order-btn">홈으로 가기</button>
-        </Link>
       </div>
     );
   }
 
   return (
     <div className="done-box">
-      <div className="s-title">
-        <h1>후원 내역</h1>
-      </div>
+      <div className="s-title"><h1>후원 내역</h1></div>
 
-      <div className="check">
-        <div className="check-box">
-          <p><strong>신청일:</strong> {orderData.date}</p>
-          <p><strong>캠페인:</strong> {orderData.title}</p>
-          <p><strong>기부번호:</strong> {orderData.orderNumber}</p>
+      {purchaseData && (
+        <div className="check">
+          <div className="check-box">
+            <p><strong>구매한 상품 후원</strong></p>
+            <p><strong>신청일:</strong> {purchaseData.date}</p>
+            <p><strong>캠페인:</strong> {purchaseData.title}</p>
+            <p><strong>주문번호:</strong> {purchaseData.orderNumber}</p>
+          </div>
+          <button
+            className="check-btn"
+            onClick={() => navigate('/DNS', { state: { type: 'order', data: purchaseData } })}
+          >
+            자세히 보기
+          </button>
         </div>
-        <Link to="/DNS"><button className="check-btn">자세히 보기</button></Link>
-      </div>
+      )}
 
-                <Link to="/" className="submit-btn-link3">
-       <div className="submit-btn-wrapper4">
-                  <p>홈으로</p>
-              </div>
-                </Link>
+      {donationData.length > 0 && donationData.map((d,i) => (
+        <div className="check" key={i}>
+          <div className="check-box">
+            <p><strong>후원 페이지 후원</strong></p>
+            <p><strong>신청일:</strong> {d.date}</p>
+            <p><strong>캠페인:</strong> {d.option}</p>
+            <p><strong>후원번호:</strong> {d.donationNumber}</p>
+          </div>
+          <button
+            className="check-btn"
+            onClick={() => navigate('/DNS', { state: { type: 'donation', data: d } })}
+          >
+            자세히 보기
+          </button>
+        </div>
+      ))}
+
     </div>
   );
 };

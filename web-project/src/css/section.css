@@ -1,4 +1,4 @@
-.card {width: 1920px; height: 1078px; justify-content: center; }
+.card {width: 1920px; height: 900px; justify-content: center; box-shadow: none;}
 h1 {  width:581px ; height: 78px;  font-size: 65px; color: #1B3A4B;} 
 .text {width: 700px; height: 36px ; font-size: 30px; padding: 20px; color: #1B3A4B; }
 .text-box{
@@ -35,3 +35,8 @@ h1 {  width:581px ; height: 78px;  font-size: 65px; color: #1B3A4B;}
 .A h3 {width: 247px; height: 85px; font-size: 35px; color: #1B3A4B; padding: 10px;}
 .A:hover { -webkit-transform: scale(1.1);
   transform: scale(1.1); cursor: pointer; } 
+
+
+  .card2 a {
+    text-decoration: none;
+  }

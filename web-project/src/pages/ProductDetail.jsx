@@ -1,9 +1,4 @@
-
-
-// 수정 팝업
-
-// 수량조절버튼포함
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../css/ProductDetail.css';
 
@@ -15,41 +10,56 @@ function ProductDetail() {
   if (!product) return <div>상품 정보가 없습니다.</div>;
 
   const [quantity, setQuantity] = useState(1);
+  const [user, setUser] = useState(null);
 
-  const handleBuy = () => {
-    const size = document.getElementById('size')?.value;
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
-    if (!size) {
-      alert('옵션을 선택해 주세요.');
+  const checkLoginAndProceed = (callback) => {
+    if (!user) {
+      alert('로그인 후 구매해 주세요.');
+      navigate('/Login');
       return;
     }
+    callback();
+  };
 
-    localStorage.setItem('cartProduct', JSON.stringify({ 
-      ...product, 
-      quantity, 
-      size,
-      totalPrice: totalPrice.toLocaleString() + ' 원'
-    }));
-
-    navigate('/Order2');
+  const handleBuy = () => {
+    checkLoginAndProceed(() => {
+      const size = document.getElementById('size')?.value;
+      if (!size) {
+        alert('옵션을 선택해 주세요.');
+        return;
+      }
+      localStorage.setItem('cartProduct', JSON.stringify({ 
+        ...product, 
+        quantity, 
+        size,
+        totalPrice: totalPrice.toLocaleString() + ' 원'
+      }));
+      navigate('/Order2');
+    });
   };
 
   const handleCart = () => {
-    const size = document.getElementById('size')?.value;
-
-    if (!size) {
-      alert('옵션을 선택해 주세요.');
-      return;
-    }
-
-    localStorage.setItem('cartProduct', JSON.stringify({ 
-      ...product, 
-      quantity, 
-      size,
-      totalPrice: totalPrice.toLocaleString() + ' 원'
-    }));
-
-    navigate('/Cart2');
+    checkLoginAndProceed(() => {
+      const size = document.getElementById('size')?.value;
+      if (!size) {
+        alert('옵션을 선택해 주세요.');
+        return;
+      }
+      localStorage.setItem('cartProduct', JSON.stringify({ 
+        ...product, 
+        quantity, 
+        size,
+        totalPrice: totalPrice.toLocaleString() + ' 원'
+      }));
+      navigate('/Cart2');
+    });
   };
 
   const handleDecrease = () => {
@@ -79,7 +89,6 @@ function ProductDetail() {
             </div>
           </div>
 
-          
           <p style={{ color: '#aaa', fontWeight: '400' }}>상품을 구매하면 {product.animal}에게 기부가 되요!</p>
 
           <span className="line-lg"></span>
@@ -95,14 +104,16 @@ function ProductDetail() {
                 <option disabled>-------- 인형선택 옵션--------</option>
                 <option value="25">25cm</option>
                 <option value="35">35cm</option>
-                <option value="50">50cm</option>
+                <option value="45">45cm</option>
+                <option value="55">55cm</option>
+                <option value="65">65cm</option>
                 <option value="75">75cm</option>
+                <option value="85">85cm</option>
                 <option value="95">95cm</option>
               </select>
             </div>
           </div>
 
-          {/* ✅ 수량 조절 UI */}
           <div className="txt-group">
             <div className="item"><span>수량</span></div>
             <div className="item-quantity-control">

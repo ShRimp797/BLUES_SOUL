@@ -4,7 +4,7 @@
 .mypage {width: 1800px; height: 500px; justify-content: center; align-items: center; text-align: center;
 margin-top: 50px;} 
 
-.mypage-title {font-size: 45px; font-weight: bold; color: #1B3A4B;}
+.mypage-title {font-size: 35px; font-weight: bold; color: #1B3A4B;  padding: 30px;}
 .mypage-box{
     width: 1300px; height: 192px; 
    justify-content: center; align-items: center;  text-align: center; margin-top: 15px;

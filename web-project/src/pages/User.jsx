@@ -1,105 +1,174 @@
-import React from 'react'
+
+
+// 수정
+
+import React, { useState, useEffect } from 'react';
 import '../css/user.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+ 
+console.log(localStorage.getItem('user'));
+
 const User = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [user, setUser] = useState({
+    name: '',
+    phone: '',
+    birth: '',
+    email: ''
+  });
 
-  const handleJoinClick = () => {
-    alert("수정이 완료되었습니다.");
-    navigate("/Mypage");
+  const [formData, setFormData] = useState({
+    password: '',
+    passwordConfirm: '',
+    postcode: '',
+    address: '',
+    detailAddress: ''
+  });
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      setUser({
+        name: parsedUser.name || '',
+        phone: parsedUser.phone || '',
+        birth: parsedUser.birth || '',
+        email: parsedUser.email || ''
+      });
+    }
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // const handleUpdate = () => {
+  //   alert("수정이 완료되었습니다.");
+  //   navigate("/Mypage");
+  // };
+
+
+const handleUpdate = () => {
+  const name = document.querySelector('.U-name-N').textContent.trim();
+  const phone = document.querySelector('.U-number-phone').textContent.trim();
+  const birth = document.querySelector('.U-number-birth').textContent.trim();
+  const email = document.querySelector('.U-email-A').textContent.trim();
+  const password = document.querySelector('.U-pw-1').value.trim();
+  const post = document.querySelector('.Upost').value.trim();
+  const address = document.querySelector('.address').value.trim();
+
+  if (!name || !phone || !birth || !email || !password || !post || !address) {
+    alert('정보를 입력해 주세요.');
+    return;
+  }
+
+  alert('수정 완료!');
+  navigate('/'); // 홈으로 이동
+};
 
 
   return (
-    <>
-    
-    
-     <div className="U-j">
-        <h1>회원정보</h1>
-         
-          <div className="U-info">
+    <div className="U-j">
+      <h1>회원정보</h1>
+      <div className="U-info">
 
-            <div className="U-name">
-
-            <div className="name">
-              <p>이름</p>
-              {/* <p>사용자</p> */}
-               <input type="text" className="U-name2" id="U-name2" autoFocus />
-            </div>
-
-            </div>
-            <div className="U-number">
-              <p>휴대전화</p>
-              <div className="number-box">
-                <input type="text" className="U-number2" autoFocus />-
-                <input type="text" className="U-number2" autoFocus />-
-                <input type="text" className="U-number2" autoFocus />
-                
-                  
-              {/* <p className='U-number2'>010-7777-8888</p>           */}
-              </div>
-            </div>
-
-            <div className="U-number">
-              <p>생년월일</p>
-              <div className="number-box">
-                <input type="text" className="U-number2" autoFocus />년
-                <input type="text" className="U-number2" autoFocus />월
-                <input type="text" className="U-number2" autoFocus />일
-            
-              </div>
-            </div>
-              
-            <div className="U-email">
-              <p>이메일</p>
-              <input type="text" className="email" id="email" autoFocus />
-            </div>
-            
-         
-            <div className="U-password">
-              <p>비밀번호</p>
-              <input type="text" className="U-pw" id="U-pw" autoFocus />
-            </div>
-            <div className="U-password">
-              <p>비밀번호 확인</p>
-              <input type="text" className="U-pw" id="U-pw" autoFocus />
-            
-            </div>
-
-            <div className="U-post">
-              <p>우편번호</p>
-              <input type="text" className="Upost" id="Upost" autoFocus />
-            </div>
-            <div className="U-address">
-              <p>주소</p>
-              <input type="text" className="address" id="address" autoFocus />
-            </div>
-            <div className="U-address">
-              <p>상세주소</p>
-              <input type="text" className="address" id="address" autoFocus />
-            </div>
+        {/* 이름 */}
+        <div className="U-name">
           
-          </div>
-
-
+            <p>이름</p>
+            <p className='U-name-N'>{user.name}</p>
+          
         </div>
 
-            {/* <div className="submit-btn-wrapper2">
-                                            <Link to="/" className="submit-btn-link2">
-                                                <p>수정완료</p>
-                                            </Link>
-                                        </div> */}
+        {/* 휴대전화 */}
+        <div className="U-number">
+          <p>휴대전화</p>
+          <p className='U-number-phone'>{user.phone}</p>
+        </div>
 
+        {/* 생년월일 */}
+        <div className="U-number">
+          <p>생년월일</p>
+          
+          <p className='U-number-birth'>{user.birth}</p>
+        </div>
 
-                                            <div className="submit-btn-wrapper2">
-        <button className="submit-btn-link2"  onClick={handleJoinClick}>
+        {/* 이메일 */}
+        <div className="U-email">
+          <p>이메일</p>
+          <p className='U-email-A'>{user.email}</p>
+        </div>
+
+        {/* 비밀번호 */}
+        <div className="U-password-1">
+          <p>비밀번호</p>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className="U-pw-1"
+          />
+        </div>
+
+        <div className="U-password-1">
+          <p>비밀번호 확인</p>
+          <input
+            type="password"
+            name="passwordConfirm"
+            value={formData.passwordConfirm}
+            onChange={handleChange}
+            className="U-pw-1"
+          />
+        </div>
+
+        {/* 주소 */}
+        <div className="U-post">
+          <p>우편번호</p>
+          <input
+            type="text"
+            name="postcode"
+            value={formData.postcode}
+            onChange={handleChange}
+            className="Upost"
+          />
+        </div>
+
+        <div className="U-address">
+          <p>주소</p>
+          <input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            className="address"
+          />
+        </div>
+
+        <div className="U-address">
+          <p>상세주소</p>
+          <input
+            type="text"
+            name="detailAddress"
+            value={formData.detailAddress}
+            onChange={handleChange}
+            className="address"
+          />
+        </div>
+
+      </div>
+
+      <div className="submit-btn-wrapper2-1">
+        <button className="submit-btn-link2-1" onClick={handleUpdate}>
           수정완료
         </button>
       </div>
-      </>
-  )
+    </div>
+  );
 }
 
-export default User
+export default User;
+

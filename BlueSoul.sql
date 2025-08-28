@@ -1,0 +1,218 @@
+CREATE TABLE `codes` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(100)	NOT NULL	COMMENT 'UK',
+	`code_group_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`name`	VARCHAR(100)	NOT NULL	COMMENT '코드명',
+	`value`	VARCHAR(100)	NOT NULL	COMMENT '코드 값',
+	`code`	VARCHAR(100)	NULL	COMMENT '업무코드',
+	`description`	TEXT	NOT NULL	COMMENT '설명',
+	`seq`	INT	NOT NULL	DEFAULT 0	COMMENT '순서',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `cancellations` (
+	`no`	bigint	NOT NULL	COMMENT 'PK',
+	`id`	varchar(64)	NOT NULL	COMMENT 'UK',
+	`order_no`	bigint	NOT NULL	COMMENT 'FK',
+	`type`	enum('주문취소', '반품')	NOT NULL	DEFAULT '주문취소'	COMMENT '타입 ('주문취소','반품')',
+	`reason`	text	NULL	COMMENT '취소사유',
+	`is_confirmed`	tinyint(1)	NOT NULL	DEFAULT '0'	COMMENT '승인여부',
+	`is_refund`	tinyint(1)	NULL	DEFAULT '0'	COMMENT '환불처리여부',
+	`account_number`	varchar(100)	NULL	DEFAULT NULL	COMMENT '환불계좌번호',
+	`bank_name`	varchar(100)	NULL	DEFAULT NULL	COMMENT '환불계좌은행',
+	`depositor`	varchar(100)	NULL	DEFAULT NULL	COMMENT '환불예금주',
+	`created_at`	timestamp	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	timestamp	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `seq` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(100)	NOT NULL	COMMENT 'UK',
+	`seq_group_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`code`	VARCHAR(100)	NOT NULL	COMMENT '시퀀스를 식별하는 코드 (seq_group_code)',
+	`value`	BIGINT	NOT NULL	DEFAULT 0	COMMENT '현재 시퀀스 번호',
+	`date`	DATE	NOT NULL	COMMENT '적용일자 (YYYY-MM-DD)',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `orders` (
+	`no`	bigint	NOT NULL	COMMENT 'PK',
+	`id`	varchar(64)	NOT NULL	COMMENT 'UK',
+	`user_no`	bigint	NOT NULL	COMMENT 'FK',
+	`code`	varchar(100)	NULL	DEFAULT NULL	COMMENT '주문코드 (20250101_상품번호_유저번호_당일시퀀스)',
+	`title`	text	NOT NULL	COMMENT '주문제목 (상품1 외 5건)',
+	`guest_tel`	varchar(100)	NULL	DEFAULT NULL	COMMENT '비회원 전화번호',
+	`total_price`	bigint	NULL	DEFAULT NULL	COMMENT '총 가격',
+	`total_quantity`	bigint	NULL	DEFAULT NULL	COMMENT '총 수량',
+	`total_item_count`	bigint	NULL	DEFAULT NULL	COMMENT '총 항목수',
+	`ship_price`	bigint	NOT NULL	DEFAULT 0	COMMENT '배송비',
+	`status`	enum('결제대기', '결제완료', '배송중', '배송완료', '주문취소')	NULL	DEFAULT '결제대기'	COMMENT '상태 ('결제대기','결제완료'',
+	`주문취소),`	`created_at`	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	timestamp	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `option_group` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(64)	NOT NULL	COMMENT 'UK',
+	`name`	VARCHAR(100)	NOT NULL	COMMENT '옵션그룹명',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `seq_groups` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(100)	NOT NULL	COMMENT 'UK',
+	`code`	VARCHAR(100)	NOT NULL	COMMENT '시퀀스를 식별하는 코드',
+	`name`	VARCHAR(100)	NOT NULL	COMMENT '시퀀스 이름',
+	`value`	BIGINT	NOT NULL	DEFAULT 0	COMMENT '그룹 누적 시퀀스 번호',
+	`step`	BIGINT	NOT NULL	DEFAULT 1	COMMENT '증감치 (기본적으로 +1)',
+	`description`	TEXT	NULL	COMMENT '설명',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `options` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(64)	NOT NULL	COMMENT 'UK',
+	`group_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`name`	VARCHAR(100)	NOT NULL	COMMENT '옵션명',
+	`price`	BIGINT	NOT NULL	DEFAULT 0	COMMENT '옵션가격',
+	`stock`	BIGINT	NOT NULL	DEFAULT 0	COMMENT '옵션재고',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `order_item` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(64)	NOT NULL	COMMENT 'UK',
+	`product_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`order_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`option_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`quantity`	BIGINT	NOT NULL	DEFAULT 1	COMMENT '수량',
+	`price`	BIGINT	NOT NULL	COMMENT '가격',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `carts` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(64)	NOT NULL	COMMENT 'UK',
+	`user_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`product_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`quantity`	BIGINT	NULL	COMMENT '수량',
+	`total_price`	BIGINT	NULL	COMMENT '수량x가격',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `code_groups` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(100)	NOT NULL	COMMENT 'UK',
+	`name`	VARCHAR(100)	NOT NULL	COMMENT '코드그룸명',
+	`description`	TEXT	NOT NULL	COMMENT '설명',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `user_auth` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(64)	NOT NULL	COMMENT 'UK',
+	`user_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`username`	VARCHAR(100)	NOT NULL	COMMENT '아이디',
+	`auth`	VARCHAR(100)	NOT NULL	COMMENT '권한',
+	`name`	VARCHAR(100)	NOT NULL	COMMENT '이름',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `users` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(64)	NOT NULL	COMMENT 'UK',
+	`username`	VARCHAR(100)	NOT NULL	COMMENT '아이디',
+	`password`	VARCHAR(100)	NOT NULL	COMMENT '비밀번호',
+	`name`	VARCHAR(100)	NOT NULL	COMMENT '이름',
+	`tel`	VARCHAR(100)	NOT NULL	COMMENT '전화번호',
+	`email`	VARCHAR(100)	NOT NULL	COMMENT '이메일',
+	`enabled`	TINYINT(1)	NOT NULL	DEFAULT 1	COMMENT '활성화여부',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `products` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(64)	NOT NULL	COMMENT 'UK',
+	`name`	VARCHAR(100)	NOT NULL	COMMENT '상품명',
+	`stock`	BIGINT	NULL	DEFAULT 0	COMMENT '상품재고',
+	`category_no`	BIGINT	NOT NULL	COMMENT 'FK (카테고리)',
+	`category_large_no`	BIGINT	NOT NULL	COMMENT 'FK (대분류)',
+	`option_group_no`	BIGINT	NULL	COMMENT 'FK (옵션그룹)',
+	`price`	BIGINT	NOT NULL	COMMENT '가격(기본가)',
+	`ship_price`	BIGINT	NOT NULL	COMMENT '배송비',
+	`ship_msg`	TEXT	NULL	COMMENT '배송안내',
+	`summary`	TEXT	NULL	COMMENT '상품요약정보',
+	`content`	TEXT	NULL	COMMENT '상품상세(HTML)',
+	`is_new`	TINYINT(1)	NULL	COMMENT '신상',
+	`is_best`	TINYINT(1)	NULL	COMMENT '베스트',
+	`is_sold_out`	TINYINT(1)	NULL	COMMENT '품절',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+CREATE TABLE `payments` (
+	`no`	BIGINT	NOT NULL	COMMENT 'PK',
+	`id`	VARCHAR(64)	NOT NULL	COMMENT 'UK',
+	`order_no`	BIGINT	NOT NULL	COMMENT 'FK',
+	`method`	VARCHAR(100)	NULL	COMMENT '결제방식',
+	`status`	ENUM('결제대기', '결제완료', '결제실패')	NOT NULL	DEFAULT '결제대기'	COMMENT '상태 ( '결제대기',
+	`결제실패`	)"	NULL,
+	`payment_key`	VARCHAR(100)	NOT NULL	COMMENT '결제식별키',
+	`created_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록일자',
+	`updated_at`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '수정일자'
+);
+
+ALTER TABLE `cancellations` ADD CONSTRAINT `PK_CANCELLATIONS` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `orders` ADD CONSTRAINT `PK_ORDERS` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `option_group` ADD CONSTRAINT `PK_OPTION_GROUP` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `options` ADD CONSTRAINT `PK_OPTIONS` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `order_item` ADD CONSTRAINT `PK_ORDER_ITEM` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `carts` ADD CONSTRAINT `PK_CARTS` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `code_groups` ADD CONSTRAINT `PK_CODE_GROUPS` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `user_auth` ADD CONSTRAINT `PK_USER_AUTH` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `users` ADD CONSTRAINT `PK_USERS` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `products` ADD CONSTRAINT `PK_PRODUCTS` PRIMARY KEY (
+	`no`
+);
+
+ALTER TABLE `payments` ADD CONSTRAINT `PK_PAYMENTS` PRIMARY KEY (
+	`no`
+);
+
